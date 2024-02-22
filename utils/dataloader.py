@@ -40,7 +40,6 @@ class ElectricityLoader:
             ts_raw.append(ts[-split_horizon*12:])
         test_dataset.ts_raw = ts_raw
         return train_dataset, test_dataset
-
     def get_batch(self, batch_size=64, win_len=14*2, horizon=12, ts_sampling='uniform'):
         target_ts = np.zeros((batch_size, horizon), dtype=np.float32)
         history_ts = np.zeros((batch_size, win_len), dtype=np.float32)
