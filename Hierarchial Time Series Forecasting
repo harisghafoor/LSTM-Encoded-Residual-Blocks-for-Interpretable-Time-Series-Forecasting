@@ -1,2 +1,0 @@
-# Hierarchial Time Series Forecasting : 
-Hierarchical time series forecasting is the process of generating coherent forecasts (or reconciling incoherent forecasts), allowing individual time series to be forecast individually, but preserving the relationships within the hierarchy.
