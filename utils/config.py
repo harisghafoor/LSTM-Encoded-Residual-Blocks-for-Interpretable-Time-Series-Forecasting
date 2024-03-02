@@ -6,7 +6,33 @@ os.makedirs(os.path.join(PROJECT_ROOT,DATASETS_PATH))
 LOGDIR = f"./logs"
 MODEL_VERSION = 'TEST'
 from typing import Dict, NamedTuple, Union
+from typing import NamedTuple
+
 class Parameters(NamedTuple):
+    """
+    Represents the parameters used for time series forecasting.
+
+    Attributes:
+        split (int): The split ratio for train-test data.
+        repeat (int): The number of times to repeat the training process.
+        epochs (int): The number of training epochs.
+        steps_per_epoch (int): The number of steps per epoch.
+        block_layers (int): The number of layers in each residual block.
+        hidden_units (int): The number of hidden units in each layer.
+        num_blocks (int): The number of residual blocks.
+        block_sharing (bool): Whether to share weights across blocks.
+        horizon (int): The forecast horizon.
+        history_lookback (int): The number of historical time steps to consider.
+        init_learning_rate (float): The initial learning rate.
+        decay_steps (int): The number of steps for learning rate decay.
+        decay_rate (float): The learning rate decay rate.
+        loss (str): The loss function to use.
+        pinball_tau (float): The tau parameter for the pinball loss function.
+        batch_size (int): The batch size for training.
+        weight_decay (float): The weight decay for regularization.
+        ts_sampling (str): The time series sampling method.
+        lstm_units (int): The number of units in the LSTM layer.
+    """
     split: int
     repeat: int
     epochs: int
@@ -25,7 +51,7 @@ class Parameters(NamedTuple):
     batch_size: int
     weight_decay: float
     ts_sampling: str
-    lstm_units:int
+    lstm_units: int
 
 hyperparams_dict = {
     "split": 0, # 0 is test split, 1 is validation split
